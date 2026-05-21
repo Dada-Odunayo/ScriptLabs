@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  background: #030712;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 12% 16%, rgba(25, 211, 255, 0.12), transparent 32rem),
+    radial-gradient(circle at 82% 12%, rgba(154, 108, 255, 0.16), transparent 30rem),
+    #030712;
+  color: #f8fafc;
+}
+
+::selection {
+  background: rgba(25, 211, 255, 0.28);
+  color: #ffffff;
+}
+
+.lab-grid {
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: linear-gradient(to bottom, black, transparent 88%);
+}
+
+.circuit-board {
+  background:
+    linear-gradient(90deg, transparent 0 12%, rgba(25, 211, 255, 0.38) 12% 12.4%, transparent 12.4% 100%),
+    linear-gradient(0deg, transparent 0 35%, rgba(154, 108, 255, 0.28) 35% 35.5%, transparent 35.5% 100%),
+    linear-gradient(90deg, transparent 0 66%, rgba(25, 211, 255, 0.28) 66% 66.4%, transparent 66.4% 100%),
+    linear-gradient(0deg, transparent 0 72%, rgba(25, 211, 255, 0.22) 72% 72.5%, transparent 72.5% 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
