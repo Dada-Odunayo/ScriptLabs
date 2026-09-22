@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "ScriptLabs | Software, AI, and Embedded Systems",
   description:
     "ScriptLabs builds reliable mobile apps, web platforms, AI/ML solutions, embedded systems, and CMMS platforms.",
+  icons: {
+    icon: "/favicon.svg",
+  },
   verification: {
     google: "-lkWWlQw_u9ymFh3v8RGCbruTRPTcBHdjgHCO_LThzc",
   },
