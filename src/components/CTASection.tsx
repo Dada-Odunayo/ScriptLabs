@@ -1,6 +1,33 @@
+"use client";
+
 import { ArrowUpRight } from "lucide-react";
 
+declare global {
+  interface Window {
+    gtag?: (
+      command: "event",
+      action: string,
+      params?: Record<string, string | number | boolean>,
+    ) => void;
+  }
+}
+
+const contactEmail = (() => {
+  const fromEmail = process.env.RESEND_FROM_EMAIL ?? "";
+  const match = fromEmail.match(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i);
+  return match?.[0] ?? process.env.CONTACT_EMAIL ?? "hello@scriptlabs.ng";
+})();
+
 export function CTASection() {
+  const mailtoHref = `mailto:${contactEmail}?subject=${encodeURIComponent("Book a consultation")}&body=${encodeURIComponent("Hi ScriptLabs,\n\nI would like to book a consultation.\n\nName:\nProject details:\n")}`;
+
+  const handleConsultationClick = () => {
+    window.gtag?.("event", "consultation_click", {
+      event_category: "engagement",
+      event_label: "Book a Consultation",
+    });
+  };
+
   return (
     <section id="contact" className="px-5 py-24 sm:px-8 sm:py-28" aria-labelledby="contact-heading">
       <div className="mx-auto max-w-5xl overflow-hidden rounded-lg border border-cyan-glow/20 bg-gradient-to-br from-cyan-glow/12 via-white/[0.035] to-violet-glow/16 p-8 shadow-glow sm:p-12">
@@ -13,7 +40,8 @@ export function CTASection() {
             <p className="mt-5 text-xl text-slate-300">Let&apos;s build it properly.</p>
           </div>
           <a
-            href="mailto:hello@scriptlabs.example"
+            href={mailtoHref}
+            onClick={handleConsultationClick}
             aria-label="Book a consultation with ScriptLabs"
             className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-bold text-slate-950 transition hover:-translate-y-0.5 hover:bg-cyan-100 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-ink"
           >

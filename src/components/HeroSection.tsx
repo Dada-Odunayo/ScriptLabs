@@ -9,7 +9,6 @@ const systemStats = [
 export function HeroSection() {
   return (
     <section className="relative isolate pt-20" aria-labelledby="hero-heading">
-      <div className="lab-grid absolute inset-0 -z-20" />
       <div className="absolute inset-x-0 top-0 -z-10 h-[44rem] bg-[radial-gradient(circle_at_top,rgba(25,211,255,0.13),transparent_42rem)]" />
       <div className="mx-auto grid max-w-7xl items-center gap-10 px-5 pb-14 pt-12 sm:px-8 sm:pt-16 lg:grid-cols-[1.02fr_0.98fr] lg:pb-16 lg:pt-16">
         <div>

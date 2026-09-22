@@ -6,6 +6,12 @@ const footerServices = [
   "CMMS",
 ];
 
+const contactEmail = (() => {
+  const fromEmail = process.env.RESEND_FROM_EMAIL ?? "";
+  const match = fromEmail.match(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i);
+  return match?.[0] ?? process.env.CONTACT_EMAIL ?? "hello@scriptlabs.ng";
+})();
+
 export function Footer() {
   return (
     <footer className="border-t border-white/10 px-5 py-12 sm:px-8">
@@ -33,8 +39,9 @@ export function Footer() {
         <div>
           <h2 className="text-sm font-semibold uppercase text-slate-300">Contact</h2>
           <address className="mt-4 space-y-3 not-italic text-sm text-slate-400">
-            <p>hello@scriptlabs.example</p>
-            <p>+234 000 000 0000</p>
+            <a href={`mailto:${contactEmail}`} className="block transition hover:text-cyan-glow">
+              {contactEmail}
+            </a>
             <p>Lagos, Nigeria</p>
           </address>
         </div>

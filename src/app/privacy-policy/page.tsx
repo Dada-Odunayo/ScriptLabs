@@ -255,14 +255,14 @@ export default function PrivacyPolicyPage() {
           <PolicySection title="11. Contact">
             <p>If you have questions regarding this Privacy Policy, you may contact:</p>
             <div className="rounded-lg border border-cyan-glow/20 bg-cyan-glow/10 p-5">
-              <p className="font-semibold text-white">Odunayo Dada</p>
+              <p className="font-semibold text-white">ScriptLabs</p>
               <p className="mt-2">
                 Email:{" "}
                 <a
-                  href="mailto:dadaodunayo6@gmail.com"
+                  href={`mailto:${process.env.RESEND_FROM_EMAIL?.match(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i)?.[0] ?? process.env.CONTACT_EMAIL ?? "hello@scriptlabs.ng"}`}
                   className="text-cyan-glow underline-offset-4 hover:underline"
                 >
-                  dadaodunayo6@gmail.com
+                  {process.env.RESEND_FROM_EMAIL?.match(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i)?.[0] ?? process.env.CONTACT_EMAIL ?? "hello@scriptlabs.ng"}
                 </a>
               </p>
             </div>
